@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' href="{% static 'CSS_Files/home.css' %}">
+    <link rel='stylesheet' href="{% static 'CSS_Files/products.css' %}">
+    <script src="{% static 'jsFile.js' %}"></script>
+
+    {% comment %} <link rel="stylesheet" href="{% static 'css/blog.css' %}"> {% endcomment %}
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Rani</div>
+        <div class="menu" id="menu">
+            <a href="#" class="menu-item active">Home</a>
+            <a href="#" class="menu-item">About</a>
+            <a href="#" class="menu-item">Services</a>
+            <a href="#" class="menu-item">Contact</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+    </div>
+    <div>
+      
+
+      {% block auth %}
+      
+      {% endblock auth %}
+    </div>
+{% comment %} --------------------------------------------carousel_images------------------------------------------------------------------------------------ {% endcomment %}
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-interval="1000" >
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+{% comment %} ------------------carousel-image2----------------------------------------------- {% endcomment %}
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'media_Files/image4.jpg' %}" class="d-block w-100" alt="...">
+          
+{% comment %} ------------------carousel-image1----------------------------------------------- {% endcomment %}
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'media_Files/image5.jpg' %}" class="d-block w-100" alt="...">
+{% comment %} ------------------carousel-image1----------------------------------------------- {% endcomment %}
+
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'media_Files/image6.jpg' %}" class="d-block w-100" alt="...">
+{% comment %} ------------------carousel-image1----------------------------------------------- {% endcomment %}
+
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'media_Files/image7.jpg' %}" class="d-block w-100" alt="...">
+{% comment %} ------------------carousel-image1----------------------------------------------- {% endcomment %}
+
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'media_Files/image8.jpg' %}" class="d-block w-100" alt="...">
+          
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div>
+      <div>
+        {% block sidenave %}
+
+        {% endblock sidenave %}
+      </div>
+      <div>
+        {% block products %}
+        
+        {% endblock products %}
+      </div>
+
+    </div>
+
+    <div>
+        {% block hubContent %}
+        {% endblock hubContent %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </div>
+</body>
+
+</html>
+
+

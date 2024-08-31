@@ -1,0 +1,213 @@
+html, body{
+    background: #E3E3D8;
+    font-family: sans-serif;
+
+  }
+  
+
+  
+  .wrapper{
+
+    background-color: aqua;
+    height: 90vh;
+      
+    display: flex;
+    align-items: center;
+    justify-self: center;
+
+
+    width: 285px;
+    height: 370px;
+    background: white;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0;
+    transform: scale(0.95);
+    transition: box-shadow 0.5s, transform 0.5s;
+
+    
+
+    &:hover{
+      transform: scale(1);
+      box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+    }
+    
+    .product_container{
+      width:100%;
+      height:100%;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      
+      position: fixed;
+      
+      .top{
+        height: 100%;
+        width:100%;
+        
+        background: url() no-repeat center center;
+        -webkit-background-size: 100%;
+        -moz-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%;
+      }
+      .bottom{
+        
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        bottom: 0px;
+        
+        transition: transform 0.5s;
+        &.clicked{
+          transform: translateX(-50%);
+          background-color: yellow;
+        }
+        
+        .left{
+          display: flex;
+          position: relative;
+          width: 60%;
+          height: 20%;
+          background: #721eb6;
+          color: white;
+          float:left;
+          height:100%;
+          overflow: hidden;
+          margin-bottom: 0px;
+
+
+          .product_details{
+            left: 10px;
+            float: left;
+            width: calc(30% - 70px);
+            background-color: #BC3B59;
+
+            .product_name{
+              display: flex;
+              position: relative;
+              margin-left: 10px;
+
+              h6{
+                color: #f4f4f4;
+                background-color: yellow;
+                display: flex;
+                position: absolute;
+                top:0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: 0px;
+              }
+            }
+          }
+        }
+        .right{
+          display: flex;
+          position: relative;
+          width: 40%;
+          height: 20%;
+          background: #d68222;
+          color: white;
+          float:right;
+          height:100%;
+          overflow: hidden;
+          margin-bottom: 0px;
+          .details{
+            display: flexbox;
+            margin-bottom: 0px;
+            position: fixed;
+            padding: 0px;
+            float: left;
+            width: calc(70% - 40px);
+          }
+          
+          .remove{
+            width: calc(30% - 1px);
+            clear: both;
+            border-right:solid thin rgba(255,255,255,0.3);
+            height:50%;
+            background: #BC3B59;
+            transition: transform 0.5s, background 0.5s;
+            &:hover{
+              background: #9B2847;
+            }
+            &:hover i{
+              transform: translateY(5px);
+            }
+            i{
+              transition: transform 0.5s;
+              font-size:10px;
+              padding:10px;
+              color: white;
+            }
+          }
+          &:hover{
+            .remove, .done{
+              transform: translateY(-100%);
+            }
+          }
+        }
+      }
+    }
+    
+    .inside{
+      z-index:9;
+      background: #6f21af;
+      width:180px;
+      height:140px;
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      border-radius: 0px 0px 200px 200px;
+      transition: all 0.5s, border-radius 2s, top 1s;
+      overflow: hidden;
+      .icon{
+        position:absolute;
+        right:85px;
+        top:85px;
+        color:white;
+        opacity: 9;
+      }
+      
+
+
+      &:hover{
+        width:100%;
+        right:0;
+        top:0;
+        border-radius: 0;
+        height:70%;
+        .icon{
+          opacity: 0;
+          right:15px;
+          top:15px;
+        }
+        .contents{
+          opacity: 1;
+          transform: scale(1);
+          transform: translateY(0);
+        }
+      }
+      .contents{
+        padding: 5%;
+        opacity: 0;
+        transform: scale(0.5);
+        transform: translateY(-200%);
+        transition: opacity 0.2s, transform 0.8s;
+        table{
+          text-align:left;
+          width:100%;
+        }
+        h1, p, table{
+          color: white;
+        }
+        p{
+          font-size:5px;
+        }
+      }
+    }
+  }

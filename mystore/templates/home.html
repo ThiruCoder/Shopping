@@ -1,0 +1,310 @@
+{% extends "hub.html" %} {% load static %} {% block title %}My Store{% endblock title %}
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+<script>
+  .dropbtn {
+    background-color: black;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+</script>
+<script>
+
+    /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+</script>
+  /*-------------------------------------sidenav------------------------------------------------------------*/
+  {% block sidenave %}
+
+  {% endblock sidenave %}
+
+  {% block products %}
+
+  <div class="container">
+    <div class="row">
+      <div class=" col bg-info">
+
+      {% for product in products %}
+
+        <div class="col-md-4 wrapper">
+          <div class="card mb-0 shadow-sm product_container">
+            <img src="{{ product.product_Image }} " style="padding: 0px 0px 0px 0px; width: 100%; min-height: 250px; max-height: 250px;">
+            <div class="card-footer border-top border-light pe-0">
+              <p href="#" class=""><strong>{{ product.product_Name }}</strong></p>
+              <div class="d-flex mx-6" style='display:flex; margin-top:-12px;'>
+                  <span class="badge badge-primary mr-2 me-1 bg-info" href='#'>
+                    <a>{{ product.product_Color }}</a>
+                  </span>
+                  <span class="badge badge-primary mr-2 me-1 bg-info" href='#'>
+                    <a>watch</a>
+                  </span>
+                  <span class="badge badge-primary bg-info" href='#'>
+                    <a>white</a>
+                  </span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="h6 fw-bold mt-3 text-gray">&#8377; {{ product.product_Cost }}.00</span>
+                  <span class="text-muted text-decoration-line-through mt-2 me-5 text-gray" style="font-size:12px; margin-left: 2px;">{{ product.product_Discount }}</span>
+                  <a class="btn btn-sm btn-primary mb-3" style='margin-right:12px; margin-top:5px' href="#">
+                      <span class="fas fa-cart-plus mr-4"></span> Add to cart
+                  </a>
+                  
+              </div>
+              <div class="inside">
+                <div class="icon"><i class="bi bi-info-circle-fill"></i></div>
+                <div class="contents">
+                  <table>
+                    <tr>
+                      <th>Width</th>
+                      <th>Height</th>
+                    </tr>
+                    <tr>
+                      <td>3000mm</td>
+                      <td>4000mm</td>
+                    </tr>
+                    <tr>
+                      <th>Something</th>
+                      <th>Something</th>
+                    </tr>
+                    <tr>
+                      <td>200mm</td>
+                      <td>200mm</td>
+                    </tr>
+                    <tr>
+                      <th>Something</th>
+                      <th>Something</th>
+                    </tr>
+                    <tr>
+                      <td>200mm</td>
+                      <td>200mm</td>
+                    </tr>
+                    <tr>
+                      <th>Something</th>
+                      <th>Something</th>
+                    </tr>
+                    <tr>
+                      <td>200mm</td>
+                      <td>200mm</td>
+                    </tr>
+                  </table>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+  
+  {% endblock products %}
+
+{% block hubContent %} {% comment %} Footer Design starts now {% endcomment %}
+
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="m-0 mt-sm-5 pb-0 ps-0 pe-0">
+  <!-- Footer -->
+  <footer
+    class="text-center text-lg-start text-white container-expand-sm"
+    style="background: linear-gradient(90deg, #1e3c72, #2a5298)"
+  >
+    <style></style>
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">My Brand</h6>
+            <p>
+              Here you can use rows and columns to organize your footer content.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <p>
+              <a class="text-white">MDBootstrap</a>
+            </p>
+            <p>
+              <a class="text-white">MDWordPress</a>
+            </p>
+            <p>
+              <a class="text-white">BrandFlow</a>
+            </p>
+            <p>
+              <a class="text-white">Bootstrap Angular</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+
+            <!-- Facebook -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #3b5998"
+              href="#!"
+              role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #55acee"
+              href="#!"
+              role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+
+            <!-- Google -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #dd4b39"
+              href="#!"
+              role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+
+            <!-- Instagram -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #ac2bac"
+              href="#!"
+              role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+
+            <!-- Linkedin -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #0082ca"
+              href="#!"
+              role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #333333"
+              href="#!"
+              role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright:
+      <a class="text-white" href="#">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
+<!-- End of .container -->
+
+{% comment %} Footer Design ends now {% endcomment %} {% endblock hubContent %}
